@@ -27,7 +27,7 @@ var hola=function () { //funcion anonima void
 }
 var resultado=hola()
 console.log(resultado);
-console.log('funcion',holaMundo);
+console.log('funcion',holaMundo); // da la definicion de la funcion (sin los parentesis)
 
 function hazAlgo(algo) {
     algo();
