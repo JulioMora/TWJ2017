@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/Angular/Web01" libraries="{TWJ2017/Angular/Web01/node_modules}" />
     <file url="file://$PROJECT_DIR$/Aplicacion1" libraries="{TWJ2017/Aplicacion1/node_modules}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
   </component>
