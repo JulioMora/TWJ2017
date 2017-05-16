@@ -8,7 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Funciona CTM!';
+        this.title = 'Funciona!';
+        this.nombre = 'Julio';
     }
     AppComponent = __decorate([
         core_1.Component({
