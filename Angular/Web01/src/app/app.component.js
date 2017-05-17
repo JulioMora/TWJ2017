@@ -8,9 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Funciona!';
-        this.nombre = 'Julio';
+        this.usuario = {
+            nombre: "Julio",
+            apellido: "Mora"
+        };
+        console.log("Constructor");
+        this.holaMundo();
+        console.log(this.saludar(this.usuario.nombre, this.usuario.apellido));
     }
+    AppComponent.prototype.holaMundo = function () {
+        console.log("Hola mundo");
+    };
+    AppComponent.prototype.saludar = function (nombre, apellido) {
+        return "Hola " + nombre + " " + apellido;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-root',

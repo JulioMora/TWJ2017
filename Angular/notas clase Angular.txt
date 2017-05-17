@@ -1,0 +1,7 @@
+una aplicacion puede tener estructura logica estilos
+un modulo es como una aplicacion de angular 
+dempre de un module hay componentes
+singleton algo que se esta compartiendo pero se instacncia una sola vez
+se llama providers
+se puede cambiar el selector en appcomponents.ts
+y se debe cambiar en el index.html 
