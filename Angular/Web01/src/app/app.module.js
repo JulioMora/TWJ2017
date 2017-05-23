@@ -10,13 +10,15 @@ var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
+var estilos_component_1 = require('./estilos/estilos.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                estilos_component_1.EstilosComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,

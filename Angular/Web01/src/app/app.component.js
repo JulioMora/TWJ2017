@@ -12,9 +12,19 @@ var AppComponent = (function () {
             nombre: "Julio",
             apellido: "Mora"
         };
-        console.log("Constructor");
-        this.holaMundo();
-        console.log(this.saludar(this.usuario.nombre, this.usuario.apellido));
+        this.url = "https://angular.io";
+        this.src = "https://angular.io/resources/images/logos/angular/angular.png";
+        /*constructor(){
+          console.log("Constructor");
+          this.holaMundo();
+          console.log(
+            this.saludar(this.usuario.nombre,
+              this.usuario.apellido
+            ));
+        }*/
+        this.parrafo = "";
+        this.background = "blue";
+        this.parrafo = "YO estuve aqui";
     }
     AppComponent.prototype.holaMundo = function () {
         console.log("Hola mundo");

@@ -11,13 +11,23 @@ export class AppComponent {
     apellido:"Mora"
   }
 
-  constructor(){
+  url:string="https://angular.io";
+  src:string="https://angular.io/resources/images/logos/angular/angular.png";
+  /*constructor(){
     console.log("Constructor");
     this.holaMundo();
     console.log(
       this.saludar(this.usuario.nombre,
         this.usuario.apellido
       ));
+  }*/
+parrafo:string="";
+  background:string="blue";
+
+
+  constructor() {
+    this.parrafo="YO estuve aqui";
+
   }
 
   holaMundo(){
