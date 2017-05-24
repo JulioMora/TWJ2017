@@ -1,0 +1,20 @@
+p{
+  border:10px;
+  border-style: solid ;
+  border-color:#80c2ff;
+}
+h1{
+  color:white;
+  background-color: #000000;
+}
+/* Este coge el identificador */
+#verde{
+  background-color: green;
+}
+/* Este coge la clase */
+.rojo{
+  color:red;
+}
+p:hover{
+  border-color: white;
+}

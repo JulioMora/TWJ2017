@@ -11,6 +11,7 @@ var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var estilos_component_1 = require('./estilos/estilos.component');
+var inicio_component_1 = require('./Componentes/inicio/inicio.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -18,7 +19,8 @@ var AppModule = (function () {
         core_1.NgModule({
             declarations: [
                 app_component_1.AppComponent,
-                estilos_component_1.EstilosComponent
+                estilos_component_1.EstilosComponent,
+                inicio_component_1.InicioComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -26,7 +28,7 @@ var AppModule = (function () {
                 http_1.HttpModule
             ],
             providers: [],
-            bootstrap: [app_component_1.AppComponent]
+            bootstrap: [inicio_component_1.InicioComponent]
         })
     ], AppModule);
     return AppModule;
