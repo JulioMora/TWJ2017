@@ -8,8 +8,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var InicioComponent = (function () {
     function InicioComponent() {
+        this.nombre = "Julio";
+        this.arregloUsuario = [
+            {
+                nombre: "Julio",
+                apellido: "Mora"
+            },
+            {
+                nombre: "Juanito",
+                apellido: "Alimaña"
+            },
+            {
+                nombre: "Pedro",
+                apellido: "Navaja"
+            }
+        ];
     }
     InicioComponent.prototype.ngOnInit = function () {
+    };
+    InicioComponent.prototype.cambiarNombre = function () {
+        this.nombre = "Rafico a Lenin";
+    };
+    InicioComponent.prototype.cambiarOtroNombre = function () {
+        this.nombre = "Lenin a Rafico";
+    };
+    InicioComponent.prototype.cambiarNombreInput = function (nombreEtiqueta) {
+        console.log(nombreEtiqueta.value);
+        console.log(nombreEtiqueta.type);
+        console.log(nombreEtiqueta.placeholder);
+        this.nombre = nombreEtiqueta.value;
     };
     InicioComponent = __decorate([
         core_1.Component({
