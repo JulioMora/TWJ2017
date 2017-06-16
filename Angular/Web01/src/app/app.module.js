@@ -12,6 +12,12 @@ var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var estilos_component_1 = require('./estilos/estilos.component');
 var inicio_component_1 = require('./Componentes/inicio/inicio.component');
+var planeta_star_wars_component_1 = require('./Componentes/planeta-star-wars/planeta-star-wars.component');
+var climate_component_1 = require('./Componentes/planeta-star-wars/Componente PSW/climate/climate.component');
+var diameter_component_1 = require('./Componentes/planeta-star-wars/Componente PSW/diameter/diameter.component');
+var gravity_component_1 = require('./Componentes/planeta-star-wars/Componente PSW/gravity/gravity.component');
+var orbital_period_component_1 = require('./Componentes/planeta-star-wars/Componente PSW/orbital-period/orbital-period.component');
+var terrain_component_1 = require('./Componentes/planeta-star-wars/Componente PSW/terrain/terrain.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,7 +26,13 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 estilos_component_1.EstilosComponent,
-                inicio_component_1.InicioComponent
+                inicio_component_1.InicioComponent,
+                planeta_star_wars_component_1.PlanetaStarWarsComponent,
+                climate_component_1.ClimateComponent,
+                diameter_component_1.DiameterComponent,
+                gravity_component_1.GravityComponent,
+                orbital_period_component_1.OrbitalPeriodComponent,
+                terrain_component_1.TerrainComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,

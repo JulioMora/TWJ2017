@@ -6,25 +6,57 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
+require("rxjs/add/operator/map");
+var UsuarioClass_1 = require("../../Clases/UsuarioClass");
 var InicioComponent = (function () {
-    function InicioComponent() {
+    function InicioComponent(_http) {
+        this._http = _http;
         this.nombre = "Julio";
+        //planetas=[];
+        this.planetas = [];
+        this.usuarios = [];
+        this.nuevoUusario = new UsuarioClass_1.UsuarioClass("");
         this.arregloUsuario = [
             {
                 nombre: "Julio",
-                apellido: "Mora"
+                apellido: "Mora",
+                conectado: true
             },
             {
                 nombre: "Juanito",
-                apellido: "Alimaña"
+                apellido: "Alimaña",
+                conectado: true
             },
             {
                 nombre: "Pedro",
-                apellido: "Navaja"
+                apellido: "Navaja",
+                conectado: false
+            },
+            {
+                nombre: "Juan",
+                apellido: "Jose",
+                conectado: true
+            },
+            {
+                nombre: "Esteban",
+                apellido: "Diaz",
+                conectado: false
             }
         ];
+        //Inicia la clase
+        //Pero el componente no esta listo!!!
     }
     InicioComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._http
+            .get("http://localhost:1337/Usuario/")
+            .subscribe(function (respuesta) {
+            var rjson = respuesta.json();
+            _this.usuarios = rjson;
+            console.log("Usuarios: ", _this.usuarios);
+        }, function (error) {
+            console.log("Error: ", error);
+        });
     };
     InicioComponent.prototype.cambiarNombre = function () {
         this.nombre = "Rafico a Lenin";
@@ -37,6 +69,54 @@ var InicioComponent = (function () {
         console.log(nombreEtiqueta.type);
         console.log(nombreEtiqueta.placeholder);
         this.nombre = nombreEtiqueta.value;
+    };
+    InicioComponent.prototype.cargarPlanetas = function () {
+        var _this = this;
+        this._http.get("http://swapi.co/api/planets").subscribe(function (response) {
+            console.log("Response:", response);
+            console.log(response.json());
+            var respuesta = response.json();
+            _this.planetas = respuesta.results;
+            _this.planetas = _this.planetas.map(function (planeta) {
+                planeta.imagenUrl = "/assets/Imagenes/" + planeta.name + '.jpg';
+                return planeta;
+            });
+        }, function (error) {
+            console.log("Error", error);
+        }, function () {
+            console.log("Finaly");
+        });
+    };
+    InicioComponent.prototype.crearUsuario = function () {
+        var _this = this;
+        console.log("Entro a crear usuario");
+        /* let usuario={
+           nombre:this.nuevoUusario.nombre,
+     
+     
+     
+         };*/
+        this._http.post("http://localhost:1337/usuario", this.nuevoUusario).subscribe(function (respuesta) {
+            var respuestaJSON = respuesta.json();
+            console.log('respuestaJSON', respuesta.json());
+            _this.usuarios.push(respuestaJSON);
+        }, function (error) {
+            console.log("Error", error);
+        });
+    };
+    InicioComponent.prototype.eliminarUsuario = function (usuario, indice) {
+        console.log("Indice:", this.usuarios.indexOf(usuario));
+        console.log("Indice con index: ", indice);
+        console.log("Usuarios : ", this.usuarios);
+        console.log("Usuariofff : ", usuario.id);
+        this.usuarios.splice(indice, 1);
+        this._http.delete("http://localhost:1337/Usuario?id=" + usuario.id)
+            .subscribe(function (respuesta) {
+            var respuestaJson = respuesta.json();
+            console.log('respuestaJsonoooooo: ', respuestaJson);
+        }, function (error) {
+            console.log("Error ", error);
+        });
     };
     InicioComponent = __decorate([
         core_1.Component({
