@@ -1,37 +1,9 @@
-<h1>Mi primer aplicacion en Angular</h1>
+<h1>App Component</h1>
+<h3>Header</h3>
+<ul>
+  <li><a [routerLink]="['inicio']">Inicio</a></li>
+  <li><a [routerLink]="['pagina2']">Pagina</a></li>
+</ul>
+<router-outlet></router-outlet>
 
-SI HACER ESTO
-<p>Gracias por visitarnos {{usuario.nobre}} {{usuario.apellido}}</p>
-
-NO HACER ESTO
-<h3>Desarrollado por {{
-  saludar(usuario.nombre,usuario.apellido)}}
-
-</h3>
-
-<h2>Property binding</h2>
-<p id="bind"></p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h2>Primera forma con llaves</h2>
-<p>{{parrafo}}</p>
-
-<h2>Segunda forma con corchetes </h2>
-<p [innerText]="parrafo"
-   [style.color]="'green'"
-   [style.background-color]="background"></p>
-<app-estilos></app-estilos>
-<app-estilos></app-estilos>
-<app-estilos></app-estilos>
-NO HACER ESTO
-<h3>{{usuario.nombre +" " + usuario.apellido}}
-</h3>
-
-<!-- no usar : <a href="{{url}}"> -->
-<a [href]="url">
-  <img [src]="src" alt="Logo Angular">
-</a>
+<h3>footer</h3>

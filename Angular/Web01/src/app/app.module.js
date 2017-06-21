@@ -18,6 +18,12 @@ var diameter_component_1 = require('./Componentes/planeta-star-wars/Componente P
 var gravity_component_1 = require('./Componentes/planeta-star-wars/Componente PSW/gravity/gravity.component');
 var orbital_period_component_1 = require('./Componentes/planeta-star-wars/Componente PSW/orbital-period/orbital-period.component');
 var terrain_component_1 = require('./Componentes/planeta-star-wars/Componente PSW/terrain/terrain.component');
+var usuario_component_1 = require('./Componentes/usuario/usuario.component');
+var pagina2_component_1 = require('./Componentes/pagina2/pagina2.component');
+var Routes_1 = require("./Routes");
+var pagina21_component_1 = require('./Componentes/pagina21/pagina21.component');
+var pagina22_component_1 = require('./Componentes/pagina22/pagina22.component');
+var pagina23_component_1 = require('./Componentes/pagina23/pagina23.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,15 +38,21 @@ var AppModule = (function () {
                 diameter_component_1.DiameterComponent,
                 gravity_component_1.GravityComponent,
                 orbital_period_component_1.OrbitalPeriodComponent,
-                terrain_component_1.TerrainComponent
+                terrain_component_1.TerrainComponent,
+                usuario_component_1.UsuarioComponent,
+                pagina2_component_1.Pagina2Component,
+                pagina21_component_1.Pagina21Component,
+                pagina22_component_1.Pagina22Component,
+                pagina23_component_1.Pagina23Component
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                http_1.HttpModule
+                http_1.HttpModule,
+                Routes_1.ModulodeRutas
             ],
             providers: [],
-            bootstrap: [inicio_component_1.InicioComponent]
+            bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
     return AppModule;

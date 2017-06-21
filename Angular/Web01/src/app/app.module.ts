@@ -13,6 +13,11 @@ import { GravityComponent } from './Componentes/planeta-star-wars/Componente PSW
 import { OrbitalPeriodComponent } from './Componentes/planeta-star-wars/Componente PSW/orbital-period/orbital-period.component';
 import { TerrainComponent } from './Componentes/planeta-star-wars/Componente PSW/terrain/terrain.component';
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
+import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
+import {ModulodeRutas} from "./Routes";
+import { Pagina21Component } from './Componentes/pagina21/pagina21.component';
+import { Pagina22Component } from './Componentes/pagina22/pagina22.component';
+import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
 
 @NgModule({
   declarations: [
@@ -25,16 +30,21 @@ import { UsuarioComponent } from './Componentes/usuario/usuario.component';
     GravityComponent,
     OrbitalPeriodComponent,
     TerrainComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    Pagina2Component,
+    Pagina21Component,
+    Pagina22Component,
+    Pagina23Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ModulodeRutas
   ],
   providers: [
 
   ],
-  bootstrap: [InicioComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
