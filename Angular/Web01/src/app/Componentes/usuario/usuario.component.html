@@ -1,0 +1,45 @@
+
+<div class="animated rollIn" *ngIf="!usuarioInput.editar">
+  <h3>{{usuarioInput.id}}</h3>
+  <h3>{{usuarioInput.nombre}}</h3>
+
+  <button class="btn btn-warning"
+          (click)="usuarioInput.editar = !usuarioInput.editar"> Editar Usuario</button>
+</div>
+
+<div class="animated bounceIn" *ngIf="usuarioInput.editar">
+  <h4>Actualizar Usuario</h4>
+
+
+  <div class="form-group">
+
+    <!--
+<div class="form-group">
+<label class="col-form-label">Nombre Usuarioinput:
+</label>
+<input class="form-control"
+ placeholder="Ingrese nuevo Nombre"
+ [(ngModel)]="Usuarioinput.nombre" type="text">
+</div>
+-->
+
+    <label class="col-form-label">Nombre Usuarioinput:
+    </label>
+    <input class="form-control"
+           placeholder="Ingrese nuevo Nombre"
+           type="text"
+           #UsuarioinputNombre
+    >
+  </div>
+
+  <button class="btn btn-primary"
+          (click)="actualizarUsuario(
+                  usuarioInput,UsuarioinputNombre.value)"> Actualizar Usuario</button>
+
+
+
+  <button class="btn btn-danger" (click)="eliminarUsuarioBackend(usuarioInput,indice)"> Eliminar Usuario</button>
+
+  <button class="btn btn-secondary"
+          (click)="usuarioInput.editar = !usuarioInput.editar"> Cancelar Usuario</button>
+</div>

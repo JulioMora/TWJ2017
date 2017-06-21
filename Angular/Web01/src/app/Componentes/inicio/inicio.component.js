@@ -52,7 +52,10 @@ var InicioComponent = (function () {
             .get("http://localhost:1337/Usuario/")
             .subscribe(function (respuesta) {
             var rjson = respuesta.json();
-            _this.usuarios = rjson;
+            _this.usuarios = rjson.map(function (usuario) {
+                usuario.editar = false;
+                return usuario;
+            });
             console.log("Usuarios: ", _this.usuarios);
         }, function (error) {
             console.log("Error: ", error);
@@ -104,19 +107,26 @@ var InicioComponent = (function () {
             console.log("Error", error);
         });
     };
-    InicioComponent.prototype.eliminarUsuario = function (usuario, indice) {
-        console.log("Indice:", this.usuarios.indexOf(usuario));
-        console.log("Indice con index: ", indice);
-        console.log("Usuarios : ", this.usuarios);
-        console.log("Usuariofff : ", usuario.id);
-        this.usuarios.splice(indice, 1);
-        this._http.delete("http://localhost:1337/Usuario?id=" + usuario.id)
-            .subscribe(function (respuesta) {
-            var respuestaJson = respuesta.json();
-            console.log('respuestaJsonoooooo: ', respuestaJson);
-        }, function (error) {
-            console.log("Error ", error);
+    InicioComponent.prototype.actualizarUsuario = function (usuario, nombre) {
+        var _this = this;
+        var actualizacion = {
+            nombre: nombre
+        };
+        this._http.put("http://localhost:1337/usuario/" + usuario.id, actualizacion).map(function (res) { return res.json; })
+            .subscribe(function (res) {
+            //el servidor se actualiza
+            console.log("El usuario se actualizo", res);
+            var indice = _this.usuarios.indexOf(usuario);
+            _this.usuarios[indice].nombre = nombre;
+            _this.usuarios[indice].editar = !_this.usuarios[indice].editar;
+        }, function (err) {
+            //no vale  el servidor
+            console.log("Hubo un error", err);
         });
+    };
+    InicioComponent.prototype.eliminarUsuarioFrontEnd = function (usuario) {
+        var indice = this.usuarios.indexOf(usuario);
+        this.usuarios.splice(indice, 1);
     };
     InicioComponent = __decorate([
         core_1.Component({

@@ -57,7 +57,10 @@ export class InicioComponent implements OnInit {
         respuesta=>{
           let rjson:UsuarioClass[] = respuesta.json();
 
-          this.usuarios = rjson;
+          this.usuarios = rjson.map((usuario:UsuarioClass)=>{
+            usuario.editar=false;
+            return usuario;
+          });
 
           console.log("Usuarios: ",this.usuarios);
         },
@@ -122,25 +125,33 @@ export class InicioComponent implements OnInit {
       console.log("Error", error)
     })
   }
-  eliminarUsuario(usuario: UsuarioClass, indice: number) {
+  actualizarUsuario(usuario:UsuarioClass,nombre:string){
+    let actualizacion={
+      nombre:nombre
+    };
+    this._http.put("http://localhost:1337/usuario/"+usuario.id,actualizacion).map((res)=>{return res.json})
+      .subscribe(
+      res=>{
+        //el servidor se actualiza
+        console.log("El usuario se actualizo",res);
+        let indice=this.usuarios.indexOf(usuario);
+        this.usuarios[indice].nombre = nombre;
+        this.usuarios[indice].editar = !this.usuarios[indice].editar;
+      },
+        err=>{
+        //no vale  el servidor
+          console.log("Hubo un error",err);
+        }
+    );
+  }
+  eliminarUsuarioFrontEnd(usuario: UsuarioClass) {
 
-    console.log("Indice:", this.usuarios.indexOf(usuario));
-    console.log("Indice con index: ", indice);
-    console.log("Usuarios : ", this.usuarios);
-    console.log("Usuariofff : ", usuario.id);
+    let indice = this.usuarios.indexOf(usuario);
+
     this.usuarios.splice(indice,1);
 
-    this._http.delete("http://localhost:1337/Usuario?id="+usuario.id)
-      .subscribe(respuesta=>{
-          let respuestaJson=respuesta.json();
-          console.log('respuestaJsonoooooo: ',respuestaJson);
-        },
-        error=>{
-          console.log("Error ", error)
-        }
-      )
-
   }
+
 }
 
 
