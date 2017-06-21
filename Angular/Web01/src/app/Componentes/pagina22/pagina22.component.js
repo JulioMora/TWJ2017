@@ -7,9 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var Pagina22Component = (function () {
-    function Pagina22Component() {
+    function Pagina22Component(router, rutaActiva) {
+        this.router = router;
+        this.rutaActiva = rutaActiva;
     }
     Pagina22Component.prototype.ngOnInit = function () {
+        this.rutaActiva.params.subscribe(function (params) {
+            console.log(params);
+        });
     };
     Pagina22Component = __decorate([
         core_1.Component({

@@ -7,9 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var Pagina21Component = (function () {
-    function Pagina21Component() {
+    function Pagina21Component(router, rutaActiva) {
+        this.router = router;
+        this.rutaActiva = rutaActiva;
     }
     Pagina21Component.prototype.ngOnInit = function () {
+        //Parametros de ruta actual (HIJO)
+        this.rutaActiva.params.subscribe(function (params) {
+            console.log("Parametros en pagina 21:", params);
+        });
+        //Parametros de la ruta PAPA
+        this.rutaActiva.parent.params.subscribe(function (params) {
+            console.log("Parametros de mi Papa:", params);
+        });
+    };
+    Pagina21Component.prototype.naveagaraInicio = function () {
+        this.router.navigate(["pagina2", 2, "pagina3", 4, "pagina22", 136]);
     };
     Pagina21Component = __decorate([
         core_1.Component({

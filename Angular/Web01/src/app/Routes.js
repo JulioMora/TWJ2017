@@ -14,19 +14,19 @@ exports.routes = [
         component: inicio_component_1.InicioComponent
     },
     {
-        path: "pagina2",
+        path: "pagina2/:idPagina2/pagina3/:idPagina3",
         component: pagina2_component_1.Pagina2Component,
         children: [
             {
-                path: "pagina21",
+                path: "pagina21/:idPartes",
                 component: pagina21_component_1.Pagina21Component
             },
             {
-                path: "pagina22",
+                path: "pagina22/:idCompetencias",
                 component: pagina22_component_1.Pagina22Component
             },
             {
-                path: "pagina23",
+                path: "pagina23/:idDuenios",
                 component: pagina23_component_1.Pagina23Component
             }
         ]
